@@ -526,7 +526,6 @@ Starting SonarQube...
 Started SonarQube.
 ```
 
-![img_2.png](img_2.png)
 u --> admin
 P --> admin
 
@@ -592,14 +591,14 @@ SonarQube Scanner
 Eclipse Temurin installer
 
 ```
+## credential setups
+![img_2.png](img_2.png)
+
+
 # Installing argocd
 
-```commandline
 
-argocd steps:
-1.
-
-```sh 
+```
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
@@ -620,7 +619,7 @@ kubectl get svc argocd-server -n argocd --watch
 ```
 4.
 ```sh 
-root@ip-172-31-86-153:~kubectl describe svc argocd-server -n argocdocd
+root@ip-172-31-86-153:~kubectl describe svc argocd-server -n argocd
 Name:                     argocd-server
 Namespace:                argocd
 Labels:                   app.kubernetes.io/component=server
@@ -667,8 +666,4 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 
 
-
-
-
-```
 
