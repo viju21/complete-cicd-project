@@ -5,7 +5,6 @@ This is Simple ci-cd project
 
 # Architecture for application
 ![img.png](img.png)
-
 # Create a EC2 instance via terraform or we can do manually also  
 
 ```yaml
