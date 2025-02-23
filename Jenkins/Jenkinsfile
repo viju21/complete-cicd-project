@@ -6,7 +6,7 @@ pipeline {
         DOCKER_TAG = "${BUILD_NUMBER}"
         IMAGE_NAME = "manojkrishnappa/fullstack"
         AWS_REGION = "us-east-1"
-        SONAR_URL = 'http://54.225.43.62:9000/'  // SonarQube URL
+        SONAR_URL = 'http://3.84.96.251:9000/'  // SonarQube URL
         GIT_REPO_NAME = "complete-cicd-project-microdegree"
         GIT_USER_NAME = "ManojKRISHNAPPA"
     }
@@ -110,9 +110,9 @@ pipeline {
                 emailext (
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
-                    to: 'aa5218321@gmail.com',
-                    from: 'manojdevopstest@gmail.com',
-                    replyTo: 'manojdevopstest@gmail.com',
+                    to: 'manojdevopstest@gmail.com',
+                    from: 'contactmanojmech@gmail.com',
+                    replyTo: 'contactmanojmech@gmail.com',
                     mimeType: 'text/html',
                     attachmentsPattern: '**/target/sonar-report.html'  // Path to the SonarQube report file
                 )

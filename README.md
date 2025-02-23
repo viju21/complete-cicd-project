@@ -7,6 +7,9 @@ This is Simple ci-cd project
 ![img.png](img.png)
 # Create a EC2 instance via terraform or we can do manually also  
 
+# Security groups inbound list
+![img_3.png](img_3.png)
+
 ```yaml
 provider "aws" {
     region = "us-east-1"
@@ -584,11 +587,19 @@ dockerVersion=$(docker -v | awk '/version/ {print $3}' | tr -d ",")
 echo "The Docker status is $dockerStatus"
 echo "The Docker version is $dockerVersion"
 ```
+### after docker installtion 
+```commandline
+usermod -aG docker jenkins
+usermod -aG docker ubuntu
+systemctl restart docker
+```
+   
 ## Plugins to install
 ```commandline
 Docker Pipeline
 SonarQube Scanner
 Eclipse Temurin installer
+Pipeline: Stage View
 
 ```
 ## credential setups
@@ -664,6 +675,7 @@ argocd-server   LoadBalancer   10.152.183.199   <pending>     80:31581/TCP,443:3
 ```sh
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
+
 
 
 
