@@ -188,20 +188,20 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/}">Twitter</a>
+        <a class="navbar-brand" href="/">Twitter</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/}">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/add}">Add Post</a>
+                    <a class="nav-link" href="/add">Add Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/logout}">Logout</a>
+                    <a class="nav-link" href="/logout">Logout</a>
                 </li>
             </ul>
         </div>
@@ -248,7 +248,6 @@
         </div>
     </div>
 
-    <!-- New Anime Section -->
     <div class="anime-section">
         <h2>Anime</h2>
         <div class="anime-item">
@@ -257,9 +256,15 @@
                 <div class="anime-item-title">Naruto Wiki</div>
             </a>
         </div>
+
+        <div class="anime-item">
+            <a href="https://en.wikipedia.org/wiki/Demon_Slayer:_Kimetsu_no_Yaiba" target="_blank" class="anime-item-link">
+                <div class="anime-item-icon">🍥</div>
+                <div class="anime-item-title">Demon Slayer</div>
+            </a>
+        </div>
     </div>
 
-    <!-- Microdegree Success Stories Section -->
     <div class="success-section">
         <h2>Microdegree Success Stories</h2>
         <div class="success-item">
@@ -272,7 +277,7 @@
 </div>
 
 <div class="footer">
-    <p>&copy; 2024 Microdegree. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p>&copy; 2025 Microdegree. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
 </div>
 
 <!-- Bootstrap JS (Optional) -->
