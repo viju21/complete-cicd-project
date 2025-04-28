@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_TAG = "20250327"
+        DOCKER_TAG = "20250428"
         IMAGE_NAME = "manojkrishnappa/fullstack"
         AWS_REGION = "us-east-1"
         CLUSTER_NAME = "microdegree-cluster"
@@ -43,7 +43,7 @@ pipeline {
         stage('Docker Image Scan') {
             steps {
                 script {
-                    sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:20250127"
+                    sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:20250428"
                 }
             }
         }
@@ -76,7 +76,7 @@ pipeline {
         
         stage('Deploy To Kubernetes') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://E00BC60076C20B56479850D48D8E35F5.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://15EE9407A3A760AA11667500FAE638DB.gr7.us-east-1.eks.amazonaws.com') {
                     sh "kubectl get pods -n microdegree"
                     sh "kubectl apply -f deployment.yml -n microdegree"
                 }
@@ -85,7 +85,7 @@ pipeline {
 
         stage('Verify the Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://E00BC60076C20B56479850D48D8E35F5.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://15EE9407A3A760AA11667500FAE638DB.gr7.us-east-1.eks.amazonaws.com') {
                     sh "kubectl get pods -n microdegree"
                     sh "kubectl get svc -n microdegree"
                 }
@@ -118,7 +118,7 @@ pipeline {
                 emailext (
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
-                    to: 'prajwalhanchinal917@gmail.com,abhishekabinavs@gmail.com',
+                    to: 'sandhya412cs@gmail.com,sgrks123@gmail.com',
                     from: 'manojdevopstest@gmail.com',
                     replyTo: 'manojdevopstest@gmail.com',
                     mimeType: 'text/html',
