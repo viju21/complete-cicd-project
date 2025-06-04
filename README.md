@@ -183,6 +183,9 @@ You can follow same procedure in the official  AWS document [Getting started wit
 
 ```commandline
 adduser sonarqube
+sudo apt install fontconfig openjdk-17-jre -y
+apt-get install unzip
+sudo su - sonarqube
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
 unzip *
 chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424
