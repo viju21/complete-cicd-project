@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_TAG = "20250428"
+        DOCKER_TAG = "20250801"
         IMAGE_NAME = "manojkrishnappa/fullstack"
         AWS_REGION = "us-east-1"
         CLUSTER_NAME = "microdegree-cluster"
@@ -43,7 +43,7 @@ pipeline {
         stage('Docker Image Scan') {
             steps {
                 script {
-                    sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:20250428"
+                    sh "trivy image --format table -o trivy-image-report.html manojkrishnappa/fullstack:20250801"
                 }
             }
         }
@@ -76,7 +76,7 @@ pipeline {
         
         stage('Deploy To Kubernetes') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://DB8D2159F3611B6D9B260CCF8AAB819A.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://9D87C8DAFF3E2D50BC939906D298E953.gr7.us-east-1.eks.amazonaws.com') {
                     sh "kubectl get pods -n microdegree"
                     sh "kubectl apply -f deployment.yml -n microdegree"
                 }
@@ -85,7 +85,7 @@ pipeline {
 
         stage('Verify the Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://DB8D2159F3611B6D9B260CCF8AAB819A.gr7.us-east-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'microdegree-cluster', contextName: '', credentialsId: 'kube', namespace: 'microdegree', restrictKubeConfigAccess: false, serverUrl: 'https://9D87C8DAFF3E2D50BC939906D298E953.gr7.us-east-1.eks.amazonaws.com') {
                     sh "kubectl get pods -n microdegree"
                     sh "kubectl get svc -n microdegree"
                 }
