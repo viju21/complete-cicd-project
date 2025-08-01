@@ -118,7 +118,7 @@ pipeline {
                 emailext (
                     subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                     body: body,
-                    to: 'sandhya412cs@gmail.com,sgrks123@gmail.com',
+                    to: 'rohitpatil.cse@gmail.com,manojdevopstest@gmail.com',
                     from: 'manojdevopstest@gmail.com',
                     replyTo: 'manojdevopstest@gmail.com',
                     mimeType: 'text/html',
